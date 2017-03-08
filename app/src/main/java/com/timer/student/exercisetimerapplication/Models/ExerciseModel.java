@@ -6,24 +6,35 @@ package com.timer.student.exercisetimerapplication.Models;
 
 public class ExerciseModel {
 
-    private String mData;
+    private String mTitleText;
+    private String mContentsText;
 
-    public ExerciseModel(String mData) {
-        this.mData = mData;
+    public ExerciseModel(String mTitleText, String mContentsText) {
+        this.mTitleText = mTitleText;
+        this.mContentsText = mContentsText;
     }
 
-    public String getmData() {
-        return mData;
+    public String getmTitleText() {
+        return mTitleText;
     }
 
-    public void setmData(String mData) {
-        this.mData = mData;
+    public void setmTitleText(String mTitleText) {
+        this.mTitleText = mTitleText;
+    }
+
+    public String getmContentsText() {
+        return mContentsText;
+    }
+
+    public void setmContentsText(String mContentsText) {
+        this.mContentsText = mContentsText;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("ExerciseModel{");
-        sb.append("mData='").append(mData).append('\'');
+        sb.append("mTitleText='").append(mTitleText).append('\'');
+        sb.append(", mContentsText='").append(mContentsText).append('\'');
         sb.append('}');
         return sb.toString();
     }

@@ -21,15 +21,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment
+    <FrameLayout
         android:id="@+id/frg"
         android:name="com.timer.student.exercisetimerapplication.fragments.ExerciseFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/top">
-
-    </fragment>
-
+        android:layout_below="@id/top" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -40,5 +37,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
 
 </RelativeLayout>

@@ -4,9 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.timer.student.exercisetimerapplication.Models.ExerciseModel;
 import com.timer.student.exercisetimerapplication.R;
@@ -50,18 +48,11 @@ public class ExerciseAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).
                     inflate(R.layout.item_list_view,parent,false);
 
-            TextView textView = (TextView) convertView.findViewById(R.id.item_text);
+            TextView titleText = (TextView) convertView.findViewById(R.id.item_title_text);
+            TextView contentsText = (TextView) convertView.findViewById(R.id.item_contents_text);
 
-            viewHolder.mTextView = textView;
-
-            viewHolder.mButton = (Button) convertView.findViewById(R.id.item_button);
-            viewHolder.mButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(parent.getContext(), "삭제되었습니다!!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
+            viewHolder.mtitleText = titleText;
+            viewHolder.mContentsText = contentsText;
 
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -69,15 +60,15 @@ public class ExerciseAdapter extends BaseAdapter {
 
         ExerciseModel exerciseModel = mData.get(position);
 
-        viewHolder.mTextView.setText(exerciseModel.getmData());
-        viewHolder.mButton.setText("삭제");
+        viewHolder.mtitleText.setText(exerciseModel.getmTitleText());
+        viewHolder.mContentsText.setText(exerciseModel.getmContentsText());
 
 
         return convertView;
     }
 
     private static class ViewHolder{
-        TextView mTextView;
-        Button mButton;
+        TextView mtitleText;
+        TextView mContentsText;
     }
 }

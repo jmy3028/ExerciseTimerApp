@@ -8,10 +8,12 @@ import android.view.View;
 
 import com.timer.student.exercisetimerapplication.R;
 import com.timer.student.exercisetimerapplication.fragments.ExerciseFragment;
+import com.timer.student.exercisetimerapplication.fragments.ExerciseSettingFragment;
 
 public class ExerciseActivity extends AppCompatActivity {
 
     private ExerciseFragment fragment;
+    private ExerciseSettingFragment settingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +22,18 @@ public class ExerciseActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fragment = (ExerciseFragment) getSupportFragmentManager().findFragmentById(R.id.frg);
+        fragment = new ExerciseFragment();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        getSupportFragmentManager().beginTransaction().add(R.id.frg, fragment).commit();
+
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                settingFragment = new ExerciseSettingFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frg, settingFragment).commit();
+                fab.setVisibility(view.INVISIBLE);
             }
         });
     }
-
 }

@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.timer.student.exercisetimerapplication.R;
+import com.timer.student.exercisetimerapplication.functionactivity.ExerciseActivity;
 
 /**
  * Created by Student on 2017-03-07.
  */
 
 public class ExerciseSettingFragment extends Fragment {
+
+    private ExerciseActivity mExerciseActivity;
 
     private EditText mTitleEdit;
     private EditText mSetEdit;
@@ -32,7 +35,6 @@ public class ExerciseSettingFragment extends Fragment {
     private Button mCountTimePButton;
     private Button mCountTimeMButton;
     private Button mSaveButton;
-    private Button mCancelButton;
 
 
     private int mmSet = 0;
@@ -46,7 +48,7 @@ public class ExerciseSettingFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.exercisesetting_fragment,container,false);
+        return inflater.inflate(R.layout.exercisesetting_fragment, container, false);
     }
 
     @Override
@@ -69,7 +71,6 @@ public class ExerciseSettingFragment extends Fragment {
         mCountTimePButton = (Button) view.findViewById(R.id.counttime_p_button);
         mCountTimeMButton = (Button) view.findViewById(R.id.counttime_m_button);
         mSaveButton = (Button) view.findViewById(R.id.save_button);
-        mCancelButton = (Button) view.findViewById(R.id.cancel_button);
 
 
         mSetPButton.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +87,9 @@ public class ExerciseSettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //set 마이너스
-                if(mmSet <= 0){
+                if (mmSet <= 0) {
                     return;
-                }else {
+                } else {
                     mmSet = mmSet - 1;
                     mSetEdit.setText("" + mmSet);
                 }
@@ -110,9 +111,9 @@ public class ExerciseSettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //set 마이너스
-                if(mmCount <= 0){
+                if (mmCount <= 0) {
                     return;
-                }else {
+                } else {
                     mmCount = mmCount - 1;
                     mCountEdit.setText("" + mmCount);
                 }
@@ -134,9 +135,9 @@ public class ExerciseSettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //set 마이너스
-                if(mmTime <= 0){
+                if (mmTime <= 0) {
                     return;
-                }else {
+                } else {
                     mmTime = mmTime - 1;
                     mTimeEdit.setText("" + mmTime);
                 }
@@ -158,9 +159,9 @@ public class ExerciseSettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //set 마이너스
-                if(mmCountTime <= 0){
+                if (mmCountTime <= 0) {
                     return;
-                }else {
+                } else {
                     mmCountTime = mmCountTime - 1;
                     mCountTimeEdit.setText("" + mmCountTime);
                 }
@@ -175,12 +176,8 @@ public class ExerciseSettingFragment extends Fragment {
             }
         });
 
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        mExerciseActivity = new ExerciseActivity();
+        mExerciseActivity.onBackPressed();
 
     }
 

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.exercise_button:
                 Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
                 startActivity(intent);

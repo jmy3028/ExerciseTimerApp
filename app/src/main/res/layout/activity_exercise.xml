@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.timer.student.exercisetimerapplication.functionactivity.ExerciseActivity">
 
+    <FrameLayout
+        android:id="@+id/frg"
+        android:name="com.timer.student.exercisetimerapplication.fragments.ExerciseFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
@@ -21,12 +28,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/frg"
-        android:name="com.timer.student.exercisetimerapplication.fragments.ExerciseFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/top" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

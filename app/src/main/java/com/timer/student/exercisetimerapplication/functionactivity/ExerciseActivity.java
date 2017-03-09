@@ -12,6 +12,8 @@ import com.timer.student.exercisetimerapplication.fragments.ExerciseSettingFragm
 
 public class ExerciseActivity extends AppCompatActivity {
 
+    private FloatingActionButton fab;
+
     private ExerciseFragment fragment;
     private ExerciseSettingFragment settingFragment;
 
@@ -26,14 +28,24 @@ public class ExerciseActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().add(R.id.frg, fragment).commit();
 
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 settingFragment = new ExerciseSettingFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frg, settingFragment).commit();
+                getSupportFragmentManager().beginTransaction().
+                        replace(R.id.frg, settingFragment).addToBackStack(null).commit();
                 fab.setVisibility(view.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (fab != null) {
+            fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setVisibility(View.VISIBLE);
+            super.onBackPressed();
+        }
     }
 }

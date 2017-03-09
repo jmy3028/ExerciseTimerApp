@@ -42,11 +42,11 @@ public class ExerciseAdapter extends BaseAdapter {
     public View getView(int position, View convertView, final ViewGroup parent) {
         ViewHolder viewHolder;
 
-        if(convertView == null){
+        if (convertView == null) {
             viewHolder = new ViewHolder();
 
             convertView = LayoutInflater.from(parent.getContext()).
-                    inflate(R.layout.item_list_view,parent,false);
+                    inflate(R.layout.item_list_view, parent, false);
 
             TextView titleText = (TextView) convertView.findViewById(R.id.item_title_text);
             TextView contentsText = (TextView) convertView.findViewById(R.id.item_contents_text);
@@ -54,7 +54,7 @@ public class ExerciseAdapter extends BaseAdapter {
             viewHolder.mtitleText = titleText;
             viewHolder.mContentsText = contentsText;
 
-        }else {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
@@ -67,7 +67,7 @@ public class ExerciseAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView mtitleText;
         TextView mContentsText;
     }
